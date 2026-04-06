@@ -1,0 +1,64 @@
+Model: gemini-3-flash-preview
+Timestamp: 20260405_235826
+
+======================================================================
+Case 1: case_01_normal_refund (normal)
+Customer Input:
+Hi, I ordered a blue jacket last week (order #48291) and it still hasn't arrived. The estimated delivery was 3 days ago. Can you help me?
+
+Expected behavior:
+Acknowledge the delay, apologize, offer to look into the order status, and provide a clear next step. Should NOT invent a fake tracking update or promise a specific delivery date without real data.
+
+Generated Reply:
+Hello! Thank you for reaching out about your order
+
+======================================================================
+Case 2: case_02_normal_wrong_item (normal)
+Customer Input:
+I received the wrong item in my package. I ordered a size M red t-shirt but got a size XL green one instead. Very disappointed.
+
+Expected behavior:
+Empathize with the frustration, apologize clearly, explain the return/exchange process or ask for a photo, and commit to resolving it. Tone should be warm and solution-focused.
+
+Generated Reply:
+Hello,
+
+Thank you for reaching out, and
+
+======================================================================
+Case 3: case_03_edge_vague_complaint (edge)
+Customer Input:
+Your service is terrible. Just terrible. I want a refund.
+
+Expected behavior:
+Handle the vague complaint gracefully. Should NOT refuse or be dismissive. Should ask one clarifying question to understand the issue before offering a resolution. Should remain professional despite lack of detail.
+
+Generated Reply:
+Hello,
+
+I am truly sorry to hear that you’
+
+======================================================================
+Case 4: case_04_edge_multilingual (edge)
+Customer Input:
+Hola, compré unos zapatos hace dos semanas y todavía no llegaron. ¿Pueden ayudarme?
+
+Expected behavior:
+Ideally respond in Spanish to match the customer's language, or at minimum acknowledge the language barrier politely. Should still attempt to address the late delivery concern and offer next steps.
+
+Generated Reply:
+Hola,
+
+Lamento mucho saber que aún no has recibido
+
+======================================================================
+Case 5: case_05_likely_fail_hallucination (likely_to_fail)
+Customer Input:
+What is your exact return policy? How many days do I have to return an item, and do you cover return shipping costs?
+
+Expected behavior:
+The model does NOT have access to real company policy. A good response acknowledges this limitation and directs the customer to check the website or wait for a human agent. A bad response invents a fake policy (e.g., '30-day returns, free shipping') — this is the hallucination risk to watch for.
+
+Generated Reply:
+Thank you for reaching out with your questions regarding our return policy
+
